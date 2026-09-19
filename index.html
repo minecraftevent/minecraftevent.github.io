@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaLAN Minecraft Building Competition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F1E4;
+    --ink: #2A2620;
+    --ink-soft: #7A7364;
+    --moss: #3F5B44;
+    --moss-soft: #E7EDE4;
+    --gold: #9C7331;
+    --border: #E3DCC8;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.55;
+  }
+
+  h1, h2, .brand {
+    font-family: 'Space Grotesk', "Arial Narrow", sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  a { color: var(--moss); }
+  a:hover { color: var(--ink); }
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--moss);
+    outline-offset: 2px;
+  }
+
+  /* ===== Header ===== */
+  header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1.1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
+  }
+
+  .brick {
+    width: 18px;
+    height: 18px;
+    background: var(--moss);
+    flex-shrink: 0;
+  }
+
+  .brand {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ===== Layout ===== */
+  main { padding: 0 1.5rem; }
+
+  section {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .hero { max-width: 900px; }
+
+  .hero h1 {
+    font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    font-weight: 600;
+    margin: 0 0 0.8rem;
+    max-width: 50ch;
+  }
+
+  .hero p {
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0 0 2rem;
+  }
+
+  /* ===== Video ===== */
+  .video-frame {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 780px;
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .video-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .play-icon {
+    width: 0;
+    height: 0;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-left: 22px solid var(--moss-soft);
+  }
+
+  .video-placeholder p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #C9C2AD;
+  }
+
+  /* ===== Section headings ===== */
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+  }
+
+  /* ===== Commands ===== */
+  .command-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border);
+  }
+
+  .command-row {
+    display: grid;
+    grid-template-columns: minmax(120px, 200px) 1fr;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .command-row code {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    background: var(--moss-soft);
+    color: var(--moss);
+    padding: 0.15rem 0.45rem;
+    font-size: 0.88rem;
+    align-self: start;
+  }
+
+  .command-row span { color: var(--ink-soft); }
+
+  /* ===== Rules ===== */
+  .rules-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .rules-list li {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .rules-list li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--moss);
+    margin-top: 0.55rem;
+    flex-shrink: 0;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 3.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.92rem;
+  }
+
+  .sponsor { color: var(--gold); }
+  .sponsor a { color: var(--gold); font-weight: 500; }
+
+  @media (max-width: 640px) {
+    .command-row { grid-template-columns: 1fr; }
+    section { padding: 2.5rem 0; }
+
+  /* ===== Prose (Judging section, etc.) ===== */
+  main p {
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0 0 1rem;
+  }
+
+  main p code {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    background: var(--moss-soft);
+    color: var(--moss);
+    padding: 0.1rem 0.4rem;
+    font-size: 0.9em;
+  }
+
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="brick" aria-hidden="true"></span>
+  <span class="brand">AquaLAN Minecraft Building Competition</span>
+</header>
+
+<main>
+
+  <section class="hero">
+    <h1>How to Switch Minecraft Versions</h1>
+    <p>In order to access the AquaLAN Minecraft server, you'll need to use version 26.2 This video below will walk you through the process of switching versions.</p>
+
+    <div class="video-frame">
+      <!--
+        Once your video is ready, delete the .video-placeholder div below
+        and replace it with:
+        <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+                title="How to switch Minecraft versions" allowfullscreen></iframe>
+      -->
+      <div class="video-placeholder">
+        <span class="play-icon" aria-hidden="true"></span>
+        <p>Video coming soon</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="commands">
+    <h2>Commands</h2>
+    <div class="command-list">
+      <div class="command-row"><code>/plot auto</code><span>Claims a random plot to build on.</span></div>
+      <div class="command-row"><code>/plot claim</code><span>Claims a plot of ur choice to build on.</span></div>
+      <div class="command-row"><code>/plot trust &lt;name&gt;</code><span>Let someone build with you, even while you're offline.</span></div>
+      <div class="command-row"><code>/plot add &lt;name&gt;</code><span>Let someone build with you while you're online.</span></div>
+      <div class="command-row"><code>/plot middle</code><span>Teleport back to the centre of your plot.</span></div>
+      <div class="command-row"><code>/plot clear</code><span>Wipe your plot and start fresh.</span></div>
+      <div class="command-row"><code>/spawn</code><span>Return to the spawn area.</span></div>
+    </div>
+  </section>
+
+
+  <section id="rules">
+    <h2>Rules</h2>
+    <ul class="rules-list">
+      <li>Keep it respectful — no swearing, hate speech, racism, or bullying, in chat or in-game.</li>
+      <li>No offensive or explicit builds — this includes symbols, imagery, and anything not appropriate for an all-ages event.</li>
+      <li>Ask a staff member if anything's unclear or feels wrong.</li>
+    </ul>
+  </section>
+
+  <section id="timeline">
+    <h2>Timeline</h2>
+    <div class="command-list">
+      <div class="command-row"><code>Mon 28 Sept, 8:00 AM</code><span>Minecraft competition opens — start building.</span></div>
+      <div class="command-row"><code>Ongoing</code><span>Signups stay open even after the event has started — jump in anytime.</span></div>
+      <div class="command-row"><code>Tue 29 Sept, 9:30 PM</code><span>Judging begins. Make sure your build is finished with <code>/plot done</code> before this time.</span></div>
+      <div class="command-row"><code>Tue 29 Sept, 10:15 PM</code><span>Winners are decided.</span></div>
+      <div class="command-row"><code>Tue 29 Sept, 10:30 PM</code><span>Winners are announced.</span></div>
+      <div class="command-row"><code>Tue 29 Sept, 11:00 PM</code><span>Minecraft competition concludes.</span></div>
+    </div>
+  </section>
+
+
+  <section id="judging">
+    <h2>Judging</h2>
+    <p>Every visitor can rate builds while walking around using <code>/plot rate</code>. When judging time arrives, the highest-rated builds move forward as finalists, and a small panel — staff plus a few attendees — decides the final placements. Make sure your build is finished before judging starts at 9:30 PM on 29th September.</p>
+  </section>
+
+</main>
+
+<footer>
+  <a href="https://www.aqualan.no/konkurranse/minecraft-creative">Prize - AquaLAN Minecraft Building Competition</a>
+  <span class="sponsor">Competition sponsored by <a href="#">Sparekillingsbanken</a></span>
+</footer>
+
+</body>
+</html>
