@@ -205,9 +205,10 @@
   .sponsor { color: var(--gold); }
   .sponsor a { color: var(--gold); font-weight: 500; }
 
-  @media (max-width: 640px) {
+    @media (max-width: 640px) {
     .command-row { grid-template-columns: 1fr; }
     section { padding: 2.5rem 0; }
+  }
 
   /* ===== Prose (Judging section, etc.) ===== */
   main p {
@@ -223,7 +224,7 @@
     padding: 0.1rem 0.4rem;
     font-size: 0.9em;
   }
-
+  
   }
 </style>
 </head>
@@ -252,12 +253,8 @@
     <div class="command-list">
       <div class="command-row"><code>/plot auto</code><span>Claims a random plot to build on.</span></div>
       <div class="command-row"><code>/plot claim</code><span>Claims a plot of ur choice to build on.</span></div>
-      <div class="command-row"><code>/plot trust &lt;name&gt;</code><span>Let someone build with you, even while you're offline.</span></div>
-      <div class="command-row"><code>/plot add &lt;name&gt;</code><span>Let someone build with you while you're online.</span></div>
       <div class="command-row"><code>/plot middle</code><span>Teleport back to the centre of your plot.</span></div>
       <div class="command-row"><code>/plot clear</code><span>Wipe your plot and start fresh.</span></div>
-      <div class="command-row"><code>/plot rate &lt;1-10&gt;</code><span>Rate other player's plots.</span></div>
-      <div class="command-row"><code>/plot list top</code><span>See the leaderboard of the highest rated plots.</span></div>
       <div class="command-row"><code>/spawn</code><span>Return to the spawn area.</span></div>
     </div>
   </section>
@@ -266,8 +263,13 @@
   <section id="rules">
     <h2>Rules</h2>
     <ul class="rules-list">
+      <li>You don't need to be signed up to build, but only signed-up contestants are eligible to win — sign up anytime at the front desk.</li>
+      <li>Claiming a plot without signing up may result in losing your plot or a ban if it causes problems, e.g. taking a spot from a signed-up contestant.</li>
       <li>Keep it respectful — no swearing, hate speech, racism, or bullying, in chat or in-game.</li>
       <li>No offensive or explicit builds — this includes symbols, imagery, and anything not appropriate for an all-ages event.</li>
+      <li>Build only inside your own plot. Griefing another player's plot will result in immediate disqualification and a ban from the server.</li>
+      <li>Griefing the server itself will result in immediate disqualification and a ban from the server.</li>
+      <li>No mods that assist building by copying or overlaying pre-made designs (e.g. Schematica, Litematica) — reference images for inspiration are fine.</li>
       <li>Ask a staff member if anything's unclear or feels wrong.</li>
     </ul>
   </section>
@@ -277,9 +279,9 @@
     <div class="command-list">
       <div class="command-row"><code>Mon 28 Sept, 8:00 AM</code><span>Minecraft competition opens — start building.</span></div>
       <div class="command-row"><code>Ongoing</code><span>Signups stay open even after the event has started — jump in anytime.</span></div>
-      <div class="command-row"><code>Tue 29 Sept, 9:30 PM</code><span>Judging begins. Make sure your build is finished with <code>/plot done</code> before this time.</span></div>
+      <div class="command-row"><code>Tue 29 Sept, 9:30 PM</code><span>Judging begins. Building is locked from this point on.</span></div>
       <div class="command-row"><code>Tue 29 Sept, 10:15 PM</code><span>Winners are decided.</span></div>
-      <div class="command-row"><code>Tue 29 Sept, 10:30 PM</code><span>Winners are announced.</span></div>
+      <div class="command-row"><code>Tue 29 Sept, 10:30 PM</code><span>Winners are announced. Depending on number of contestants, this time can be delayed.</span></div>
       <div class="command-row"><code>Tue 29 Sept, 11:00 PM</code><span>Minecraft competition concludes.</span></div>
     </div>
   </section>
@@ -287,7 +289,7 @@
 
   <section id="judging">
     <h2>Judging</h2>
-    <p>Every visitor can rate builds while walking around using <code>/plot rate</code>. When judging time arrives, the highest-rated builds move forward as finalists, and a small panel — staff plus a few attendees — decides the final placements. Make sure your build is finished before judging starts at 9:30 PM on 29th September.</p>
+    <p>After judging begins, a staff panel reviews every finished build and decides the final placements. All plots will be locked from further building once judging starts at 9:30 PM on 29th of September, so nobody can make late changes after being judged.</p>
   </section>
 
 </main>
